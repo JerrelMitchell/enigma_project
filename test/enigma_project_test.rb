@@ -1,9 +1,8 @@
-require "minitest/autorun"
-require "minitest/pride"
-require "./lib/enigma_project"
+require 'minitest/autorun'
+require 'minitest/pride'
+require './lib/enigma_project'
 
 class EncryptionTest < Minitest::Test
-
   def test_it_exists
     key = KeyGenerator.new
 
@@ -15,7 +14,4 @@ class EncryptionTest < Minitest::Test
 
     assert_equal new_key, new_key.key_gen
   end
-
-
-
 end
