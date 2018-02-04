@@ -19,6 +19,14 @@ class EncryptionTest < Minitest::Test
     assert_equal new_key.key_gen, new_key.key_gen
   end
 
+  def test_we_get_four_assignable_rotations
+    key = KeyGenerator.new
+    key.key_offset
+
+    assert_instance_of Fixnum, key.key_offset
+
+  end
+
   def test_it_creates_a_key_rotation
     key = KeyGenerator.new
     key.key_rotation
