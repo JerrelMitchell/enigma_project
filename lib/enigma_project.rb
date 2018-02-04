@@ -29,10 +29,15 @@ class KeyGenerator
       d: @key_rotation_d
     }
   end
+end
 
-  def 
+class DateOffset
+  attr_reader :date
 
+  def initialize
+    @date = DateTime.now
   end
-
-  # binding.pry
+  def integer_date
+    integer_date = @date.strftime("%d%m%y")
+  end
 end

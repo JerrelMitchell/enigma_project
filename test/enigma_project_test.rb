@@ -36,12 +36,18 @@ class EncryptionTest < Minitest::Test
     assert_kind_of Hash, key.key_rotation
   end
 
+  def test_date_generates
+    date = DateOffset.new
+
+    assert_instance_of DateOffset, date
+  end
+
   def test_date_exists_as_interger
     date = DateTime.now
     integer_date = date.strftime("%d%m%y").to_i
 
 
-    assert_kind_of Fixnum, integer_date 
+    assert_kind_of Fixnum, integer_date
   end
 
 end
