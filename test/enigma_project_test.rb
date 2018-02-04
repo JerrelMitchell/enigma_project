@@ -1,6 +1,7 @@
 require 'minitest/autorun'
 require 'minitest/pride'
 require './lib/enigma_project'
+require 'date'
 
 class EncryptionTest < Minitest::Test
   def test_it_exists
@@ -33,6 +34,14 @@ class EncryptionTest < Minitest::Test
 
 
     assert_kind_of Hash, key.key_rotation
+  end
+
+  def test_date_exists_as_interger
+    date = DateTime.now
+    integer_date = date.strftime("%d%m%y").to_i
+
+
+    assert_kind_of Fixnum, integer_date 
   end
 
 end

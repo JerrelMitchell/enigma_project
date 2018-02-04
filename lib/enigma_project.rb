@@ -1,4 +1,5 @@
 require "pry"
+require 'date'
 
 class KeyGenerator
   attr_reader :key_gen,
@@ -29,6 +30,9 @@ class KeyGenerator
     }
   end
 
+  def 
+
+  end
 
   # binding.pry
 end
