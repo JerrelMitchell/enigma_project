@@ -9,7 +9,7 @@ class KeyGenerator
   end
 
 
-  def key_rotation(_integers)
+  def key_rotation
     key_offset = @key_gen.to_s.split("")
     key_rotation_a = key_offset[0..1].join.to_i
     key_rotation_b = key_offset[1..2].join.to_i
@@ -17,10 +17,10 @@ class KeyGenerator
     key_rotation_d = key_offset[3..4].join.to_i
 
     @key_rotation = {
-      a: => key_rotation_a,
-      b: => key_rotation_b,
-      c: => key_rotation_c,
-      d: => key_rotation_d
+      a: key_rotation_a,
+      b: key_rotation_b,
+      c: key_rotation_c,
+      d: key_rotation_d
     }
   end
 

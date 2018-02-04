@@ -19,12 +19,12 @@ class EncryptionTest < Minitest::Test
     assert_equal new_key.key_gen, new_key.key_gen
   end
 
-  def test_it_creates_an_offset
+  def test_it_creates_a_key_rotation
     key = KeyGenerator.new
-    key.key_rotation(1,2,3,4,5)
+    key.key_rotation
 
-    # assert_equal [], key.key_offset   #this test will make the whole test pass, comment out when trying to run next part of test
-    assert_equal {a: 12, b: 23, c: 34, d: 45}, key_rotation
+
+    assert_kind_of Hash, key.key_rotation
   end
 
 end
