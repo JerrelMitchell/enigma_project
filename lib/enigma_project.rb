@@ -21,14 +21,25 @@ class KeyGenerator
 end
 
 # DateOffset for second part of encryption process.
-class DateOffset
-  attr_reader :date
+class DateGenerator
+  attr_reader :date,
+              :integer_date
 
   def initialize
-    @date = Date.now
+    @date = DateTime.now
   end
 
   def integer_date
-    @integer_date = @date.strftime('%d%m%y')
+    @integer_date = @date.strftime('%d%m%y').to_i
   end
+
+  def integer_date_squared
+    @integer_date = @date.strftime('%d%m%y').to_i
+    @squared_date = @integer_date ** 2
+  end
+
+  def date_offset
+    date_offset = @squared_date[@squared_date.length - 4 ,4]
+  end
+
 end
