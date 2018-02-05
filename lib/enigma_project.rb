@@ -9,7 +9,7 @@ class KeyGenerator
     @key_gen = rand(10_000..99_999)
   end
 
-  def key_offset
+  def key_offsets
     key_offset = @key_gen.to_s.split('')
     @key_offsets = {
       a: key_offset[0..1].join.to_i,
@@ -38,8 +38,12 @@ class DateGenerator
     @squared_date = @integer_date ** 2
   end
 
-  def date_offset
-    date_offset = @squared_date[@squared_date.length - 4 ,4]
+  def date_offsets
+    @integer_date = @date.strftime('%d%m%y').to_i
+    @squared_date = @integer_date ** 2
+    date_string = @squared_date.to_s
+    date_offset = date_string[date_string.length - 4 ,4].to_i
+
   end
 
 end

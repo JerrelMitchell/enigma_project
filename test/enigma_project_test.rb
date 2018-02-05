@@ -22,9 +22,9 @@ class EncryptionTest < Minitest::Test
 
   def test_it_creates_a_key_offset_as_a_hash
     key = KeyGenerator.new
-    key.key_offset
+    key.key_offsets
 
-    assert_kind_of Hash, key.key_offset
+    assert_kind_of Hash, key.key_offsets
   end
 
   def test_it_generates_date
@@ -51,8 +51,8 @@ class EncryptionTest < Minitest::Test
 
   def test_it_gives_last_four_digits_of_squared_date_integer
     date = DateGenerator.new
-    date.date_offset
+    date.date_offsets
 
-    refute_kind_of Integer, date.date_offset
-  end
+    refute_kind_of Integer, date.date_offsets
+    assert_kind_of Integer, date.date_offsets
 end
