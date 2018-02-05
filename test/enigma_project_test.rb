@@ -68,8 +68,4 @@ class EncryptionTest < Minitest::Test
 
     assert Hash, rotation_key
   end
-
-  def
-    
-  end
 end

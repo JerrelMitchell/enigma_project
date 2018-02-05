@@ -34,12 +34,12 @@ class DateGenerator
 
   def integer_date_squared
     @integer_date = @date.strftime('%d%m%y').to_i
-    @squared_date = @integer_date ** 2
+    @squared_date = @integer_date**2
   end
 
   def date_offsets
     @integer_date = @date.strftime('%d%m%y').to_i
-    @squared_date = @integer_date ** 2
+    @squared_date = @integer_date**2
     date_string = @squared_date.to_s
     date_offset = date_string[date_string.length - 4, 4].split('')
     @date_offsets = {
@@ -51,11 +51,11 @@ class DateGenerator
   end
 end
 
+# EncryptionCalculator for final part of encryption process.
 class EncryptionCalculator
   attr_reader :rotation_key
 
   def initialize
-    @rotation_key = Hash.new
+    @rotation_key = {}
   end
-
 end
