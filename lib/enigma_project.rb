@@ -9,9 +9,9 @@ class KeyGenerator
     @key_gen = rand(10_000..99_999)
   end
 
-  def key_rotation
+  def key_offset
     key_offset = @key_gen.to_s.split('')
-    @key_rotation = {
+    @key_offsets = {
       a: key_offset[0..1].join.to_i,
       b: key_offset[1..2].join.to_i,
       c: key_offset[2..3].join.to_i,
