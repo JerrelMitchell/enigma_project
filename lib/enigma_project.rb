@@ -22,8 +22,7 @@ end
 
 # DateOffset for second part of encryption process.
 class DateGenerator
-  attr_reader :date,
-              :integer_date
+  attr_reader :date
 
   def initialize
     @date = DateTime.now
@@ -50,4 +49,13 @@ class DateGenerator
       d: date_offset[3].to_i
     }
   end
+end
+
+class EncryptionCalculator
+  attr_reader :rotation
+
+  def initialize
+    @rotation = rotation
+  end
+
 end

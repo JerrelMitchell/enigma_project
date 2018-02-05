@@ -56,4 +56,10 @@ class EncryptionTest < Minitest::Test
     assert_kind_of Hash, date.date_offsets
     # refute_kind_of Hash, date.date_offsets
   end
+
+  def test_encryption_calculator_exists
+    rotation = EncryptionCalculator.new
+
+    assert_equal EncryptionCalculator, rotation.class
+  end
 end
