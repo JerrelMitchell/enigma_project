@@ -58,8 +58,18 @@ class EncryptionTest < Minitest::Test
   end
 
   def test_encryption_calculator_exists
-    rotation = EncryptionCalculator.new
+    rotation_key = EncryptionCalculator.new
 
-    assert_equal EncryptionCalculator, rotation.class
+    assert_equal EncryptionCalculator, rotation_key.class
+  end
+
+  def test_it_creates_rotation_key_as_empty_hash
+    rotation_key = EncryptionCalculator.new
+
+    assert Hash, rotation_key
+  end
+
+  def
+    
   end
 end

@@ -1,5 +1,5 @@
 require 'date'
-require 'pry'
+# require 'pry'
 
 # KeyGenerator for first part of encryption process.
 class KeyGenerator
@@ -52,10 +52,10 @@ class DateGenerator
 end
 
 class EncryptionCalculator
-  attr_reader :rotation
+  attr_reader :rotation_key
 
   def initialize
-    @rotation = rotation
+    @rotation_key = Hash.new
   end
 
 end
