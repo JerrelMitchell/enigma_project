@@ -42,8 +42,12 @@ class DateGenerator
     @integer_date = @date.strftime('%d%m%y').to_i
     @squared_date = @integer_date ** 2
     date_string = @squared_date.to_s
-    date_offset = date_string[date_string.length - 4 ,4].to_i
-
+    date_offset = date_string[date_string.length - 4, 4].split('')
+    @date_offsets = {
+      a: date_offset[0].to_i,
+      b: date_offset[1].to_i,
+      c: date_offset[2].to_i,
+      d: date_offset[3].to_i
+    }
   end
-
 end

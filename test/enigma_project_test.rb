@@ -20,7 +20,7 @@ class EncryptionTest < Minitest::Test
     assert_equal new_key.key_gen, new_key.key_gen
   end
 
-  def test_it_creates_a_key_offset_as_a_hash
+  def test_it_creates_key_offsets_in_a_hash
     key = KeyGenerator.new
     key.key_offsets
 
@@ -49,10 +49,11 @@ class EncryptionTest < Minitest::Test
     # refute_kind_of Integer, date.integer_date_squared
   end
 
-  def test_it_gives_last_four_digits_of_squared_date_integer
+  def test_it_creates_date_offsets_in_a_hash
     date = DateGenerator.new
     date.date_offsets
 
-    refute_kind_of Integer, date.date_offsets
-    assert_kind_of Integer, date.date_offsets
+    assert_kind_of Hash, date.date_offsets
+    # refute_kind_of Hash, date.date_offsets
+  end
 end
