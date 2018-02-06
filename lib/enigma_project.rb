@@ -2,7 +2,7 @@ require 'date'
 require 'pry'
 
 # KeyGenerator for first part of encryption process.
-class KeyGenerator
+class Encryptor
   attr_reader :key_gen,
               :date,
               :rotation_key
@@ -48,8 +48,7 @@ class KeyGenerator
   end
 
   def values
-  rotation = key_offsets.merge(date_offsets) { |key, oldval, newval| newval + oldval }
-
+    key_offsets.merge(date_offsets) { |k, oldval, newval| newval + oldval }
   end
 
 
