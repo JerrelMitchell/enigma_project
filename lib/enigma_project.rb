@@ -57,10 +57,13 @@ class Encryptor
     end
   end
 
-  def encrypt(my_message)
-    alpha_num = ["a..z,0..9, "]
-    @my_message = my_message
 
-  end
+  def encrypt(string, shift)
+    alphabet = Array("a".."z")
+    encrypter = Hash[alphabet.zip(alphabet.rotate(shift))]
+    string.chars.map { |character| encrypter.fetch(character, " ")}.join
+  # binding.pry
+
+end
 
 end

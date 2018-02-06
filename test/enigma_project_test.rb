@@ -62,24 +62,11 @@ class EncryptionTest < Minitest::Test
     assert Hash, rotation_key
   end
 
-  # def test_encrypt_exists_with_alpha_num
-  #   alpha_num = Encryptor.new
-  #   alpha_num.encrypt
-  #
-  #   assert_instance_of Array, alpha_num.encrypt
-  # end
-
-  def test_encrypt_can_be_passed_one_character
+  def test_it_can_encrypt_one_letter
     alpha_num = Encryptor.new
-    alpha_num.encrypt("j")
+    alpha_num.encrypt("j", 5)
 
-    assert_equal "j", alpha_num.encrypt("j")
+    assert_equal "o", alpha_num.encrypt("j", 5)
   end
-
-  # def test_encrypt_can_encypt_one_character
-  #   alpha_num = Encryptor.new
-  #
-  #
-  # end
 
 end
