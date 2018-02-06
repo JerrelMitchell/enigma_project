@@ -52,13 +52,15 @@ class Encryptor
   end
 
   def values
-    rotation = key_offsets.merge(date_offsets) do |key, oldval, newval|
+    rotation_key = key_offsets.merge(date_offsets) do |key, oldval, newval|
       newval + oldval
     end
-    binding.pry
   end
 
+  def encrypt(my_message)
+    alpha_num = ["a..z,0..9, "]
+    @my_message = my_message
 
-
+  end
 
 end
