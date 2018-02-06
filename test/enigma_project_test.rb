@@ -28,13 +28,13 @@ class EncryptionTest < Minitest::Test
   end
 
   def test_it_generates_date
-    date = DateGenerator.new
+    date = KeyGenerator.new
 
-    assert_equal DateGenerator, date.class
+    assert_equal KeyGenerator, date.class
   end
 
   def test_date_is_an_integer
-    date = DateGenerator.new
+    date = KeyGenerator.new
     date.integer_date
 
     assert_kind_of Integer, date.integer_date
@@ -42,7 +42,7 @@ class EncryptionTest < Minitest::Test
   end
 
   def test_it_squares_the_date
-    date = DateGenerator.new
+    date = KeyGenerator.new
     date.integer_date_squared
 
     assert_kind_of Integer, date.integer_date_squared
@@ -50,7 +50,7 @@ class EncryptionTest < Minitest::Test
   end
 
   def test_it_creates_date_offsets_in_a_hash
-    date = DateGenerator.new
+    date = KeyGenerator.new
     date.date_offsets
 
     assert_kind_of Hash, date.date_offsets
@@ -58,14 +58,23 @@ class EncryptionTest < Minitest::Test
   end
 
   def test_encryption_calculator_exists
-    rotation_key = EncryptionCalculator.new
+    rotation_key = KeyGenerator.new
 
-    assert_equal EncryptionCalculator, rotation_key.class
+    assert_equal KeyGenerator, rotation_key.class
   end
 
-  def test_it_creates_rotation_key_as_empty_hash
-    rotation_key = EncryptionCalculator.new
+  def test_it_creates_empty_hash_when_initialized
+    rotation_key = KeyGenerator.new
 
     assert Hash, rotation_key
   end
+
+  def test_it_calls_values
+    rotation_key = KeyGenerator.new
+    rotation_key.values
+
+    assert Hash, rotation_key
+  end
+
+
 end

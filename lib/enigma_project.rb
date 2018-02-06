@@ -1,35 +1,32 @@
 require 'date'
-# require 'pry'
+require 'pry'
 
 # KeyGenerator for first part of encryption process.
 class KeyGenerator
-  attr_reader :key_gen
+  attr_reader :key_gen,
+              :date,
+              :rotation_key
 
   def initialize
     @key_gen = rand(10_000..99_999)
+    @date = DateTime.now
+    @rotation_key = rotation_key
+    @key_offsets = key_offsets
+    @integer_date = integer_date
   end
 
   def key_offsets
-    key_offset = @key_gen.to_s.split('')
-    @key_offsets = {
+    key_offset = key_gen.to_s.split('')
+    key_offsets = {
       a: key_offset[0..1].join.to_i,
       b: key_offset[1..2].join.to_i,
       c: key_offset[2..3].join.to_i,
       d: key_offset[3..4].join.to_i
     }
   end
-end
-
-# DateOffset for second part of encryption process.
-class DateGenerator
-  attr_reader :date
-
-  def initialize
-    @date = DateTime.now
-  end
 
   def integer_date
-    @integer_date = @date.strftime('%d%m%y').to_i
+    integer_date = date.strftime('%d%m%y').to_i
   end
 
   def integer_date_squared
@@ -49,13 +46,13 @@ class DateGenerator
       d: date_offset[3].to_i
     }
   end
-end
 
-# EncryptionCalculator for final part of encryption process.
-class EncryptionCalculator
-  attr_reader :rotation_key
+  def values
+  rotation = key_offsets.merge(date_offsets) { |key, oldval, newval| newval + oldval }
 
-  def initialize
-    @rotation_key = {}
   end
+
+
+
+
 end
