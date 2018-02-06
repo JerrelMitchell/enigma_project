@@ -40,7 +40,6 @@ class EncryptionTest < Minitest::Test
     date.integer_date_squared
 
     assert_kind_of Integer, date.integer_date_squared
-    # refute_kind_of Integer, date.integer_date_squared
   end
 
   def test_it_creates_date_offsets_in_a_hash
@@ -48,7 +47,6 @@ class EncryptionTest < Minitest::Test
     date.date_offsets
 
     assert_kind_of Hash, date.date_offsets
-    # refute_kind_of Hash, date.date_offsets
   end
 
   def test_it_creates_empty_hash_when_initialized
