@@ -18,6 +18,7 @@ class Encryptor
     @squared_date = squared_date
     @date_offsets = date_offsets
     @shift = shift
+    @alpha_num = alpha_num
 
   end
 
@@ -63,11 +64,14 @@ class Encryptor
   def encrypt(string)
     rotation_key.each do |(key), value|
       shift = value
-      alphabet = Array("a".."z")
-      encrypter = Hash[alphabet.zip(alphabet.rotate(shift))]
+      encrypter = Hash[alpha_num.zip(alpha_num.rotate(shift))]
       output = string.chars.map { |charc| encrypter.fetch(charc, "")}.join
-  # binding.pry
     end
-    # binding.pry
+  end
+
+  def alpha_num
+    ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k",
+      "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v",
+      "w", "x", "y", "z"]
   end
 end
