@@ -1,5 +1,5 @@
-require 'date'
-require 'pry'
+require ‘date’
+require ‘pry’
 
 # Class creating encryption process.
 class Encryptor
