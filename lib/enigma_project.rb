@@ -67,6 +67,13 @@ class Encryptor
     encrypted_a = string.chars.map { |charc| encrypt_a.fetch(charc, "")}
   end
 
+  def encrypt_b(string)
+    shift = rotation_key[:b]
+    encrypt_b = Hash[alpha_num.zip(alpha_num.rotate(shift))]
+    encrypted_b = string.chars.map { |charc| encrypt_b.fetch(charc, "")}
+binding.pry
+  end
+
   def alpha_num
     ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k",
       "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v",
