@@ -5,8 +5,8 @@ require 'pry'
 class Encryptor
   attr_reader :key_gen,
               :date,
-              :rotation_key,
-              :squared_date
+              :squared_date,
+              :rotation_key
 
   def initialize
     @key_gen = rand(10_000..99_999)
@@ -16,6 +16,7 @@ class Encryptor
     @integer_date = integer_date
     @squared_date = squared_date
     @date_offsets = date_offsets
+
 
   end
 
@@ -51,19 +52,19 @@ class Encryptor
     }
   end
 
-  def values
+  def rotation_key
     rotation_key = key_offsets.merge(date_offsets) do |key, oldval, newval|
       newval + oldval
     end
+
   end
 
-
-  def encrypt(string, shift)
+  def encryption(string)
+    shift = rotation_key.values[0]
     alphabet = Array("a".."z")
     encrypter = Hash[alphabet.zip(alphabet.rotate(shift))]
-    string.chars.map { |character| encrypter.fetch(character, " ")}.join
-  # binding.pry
-
-end
+    output_a = string.chars.map { |character| encrypter.fetch(character, " ")}.join
+    binding.pry
+  end
 
 end

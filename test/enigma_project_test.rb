@@ -55,18 +55,18 @@ class EncryptionTest < Minitest::Test
     assert Hash, rotation_key
   end
 
-  def test_it_calls_values_as_hash
+  def test_it_calls_rotation_as_hash
     rotation_key = Encryptor.new
-    rotation_key.values
+    rotation_key.rotation_key
 
     assert Hash, rotation_key
   end
 
-  def test_it_can_encrypt_one_letter
+  def test_it_can_encrypt_one_character
     alpha_num = Encryptor.new
-    alpha_num.encrypt("j", 5)
 
-    assert_equal "o", alpha_num.encrypt("j", 5)
+
+    assert_equal String, alpha_num.encryption("j")
   end
 
 end
