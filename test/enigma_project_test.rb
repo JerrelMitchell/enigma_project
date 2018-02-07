@@ -50,30 +50,36 @@ class EncryptionTest < Minitest::Test
 
   def test_it_can_encrypt_character_a
     encryptor = Encryptor.new
-    first_character = "jabs"
+    first_character = "j"
 
     assert_includes ("a".."z"), encryptor.encrypt_a(first_character).join
   end
 
   def test_it_can_encrypt_character_b
     encryptor = Encryptor.new
-    second_character = "jabs"
+    second_character = "j"
 
     assert_includes ("a".."z"), encryptor.encrypt_b(second_character).join
   end
 
   def test_it_can_encrypt_character_c
     encryptor = Encryptor.new
-    third_character = "jabs"
+    third_character = "j"
 
     assert_includes ("a".."z"), encryptor.encrypt_c(third_character).join
   end
 
   def test_it_can_encrypt_character_d
     encryptor = Encryptor.new
-    fourth_character = "jabs"
+    fourth_character = "j"
 
     assert_includes ("a".."z"), encryptor.encrypt_d(fourth_character).join
   end
 
+  def test_it_can_encrypt_four_characters_at_once
+    encryptor = Encryptor.new
+    four_characters = "jjjj"
+
+    assert_kind_of String, encryptor.encrypt_four(four_characters)
+  end
 end
