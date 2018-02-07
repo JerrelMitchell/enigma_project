@@ -1,6 +1,7 @@
 require 'minitest/autorun'
 require 'minitest/pride'
 require './lib/enigma_project'
+require 'pry'
 
 # :nodoc:
 class EncryptionTest < Minitest::Test
@@ -47,15 +48,15 @@ class EncryptionTest < Minitest::Test
     assert Hash, rotation_key
   end
 
-  def test_it_can_encrypt_one_character
+  def test_it_can_encrypt_character_a
     alpha_num = Encryptor.new
 
     assert_equal String, alpha_num.encrypt('j')
   end
 
-  def test_it_can_encrypt_four_characters
-    alpha_num = Encryptor.new
-
-    assert_equal String, alpha_num.encrypt('jjjj')
-  end
+  # def test_it_can_encrypt_four_characters
+  #   alpha_num = Encryptor.new
+  #
+  #   assert_equal String, alpha_num.encrypt('jjjj')
+  # end
 end

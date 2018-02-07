@@ -1,5 +1,5 @@
-require ‘date’
-require ‘pry’
+require 'date'
+
 
 # Class creating encryption process.
 class Encryptor
@@ -64,8 +64,9 @@ class Encryptor
   def encrypt(string)
     rotation_key.each do |(key), value|
       shift = value
-      encrypter = Hash[alpha_num.zip(alpha_num.rotate(shift))]
-      output = string.chars.map { |charc| encrypter.fetch(charc, "")}.join
+      encrypter_a = alpha_num.zip(alpha_num.rotate(shift))
+      string.chars.map { |charc| encrypter_a.fetch(charc, "")}.join
+    binding.pry
     end
   end
 
