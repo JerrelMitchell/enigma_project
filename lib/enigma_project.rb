@@ -6,7 +6,8 @@ class Encryptor
   attr_reader :key_gen,
               :date,
               :squared_date,
-              :rotation_key
+              :rotation_key,
+              :shift
 
   def initialize
     @key_gen = rand(10_000..99_999)
@@ -16,7 +17,7 @@ class Encryptor
     @integer_date = integer_date
     @squared_date = squared_date
     @date_offsets = date_offsets
-
+    @shift = shift
 
   end
 
@@ -59,12 +60,13 @@ class Encryptor
 
   end
 
-  def encryption(string)
-    shift = rotation_key.values[0]
-    alphabet = Array("a".."z")
-    encrypter = Hash[alphabet.zip(alphabet.rotate(shift))]
-    output_a = string.chars.map { |character| encrypter.fetch(character, " ")}.join
+  def encrypt(string)
+    rotation_key.each do |(key), value|
+      shift = value
+      alphabet = Array("a".."z")
+      encrypter = Hash[alphabet.zip(alphabet.rotate(shift))]
+      output = string.chars.map { |character| encrypter.fetch(character, " ")}.join
+    end
     binding.pry
   end
-
 end
