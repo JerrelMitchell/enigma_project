@@ -27,21 +27,6 @@ class EncryptionTest < Minitest::Test
     assert_kind_of Hash, key.key_offsets
   end
 
-  def test_date_is_an_integer
-    date = Encryptor.new
-    date.integer_date
-
-    assert_kind_of Integer, date.integer_date
-    # refute_kind_of Integer, date.integer_date
-  end
-
-  def test_it_squares_the_date
-    date = Encryptor.new
-    date.integer_date_squared
-
-    assert_kind_of Integer, date.integer_date_squared
-  end
-
   def test_it_creates_date_offsets_in_a_hash
     date = Encryptor.new
     date.date_offsets
@@ -65,14 +50,12 @@ class EncryptionTest < Minitest::Test
   def test_it_can_encrypt_one_character
     alpha_num = Encryptor.new
 
-
-    assert_equal String, alpha_num.encrypt("j")
+    assert_equal String, alpha_num.encrypt('j')
   end
 
   def test_it_can_encrypt_four_characters
     alpha_num = Encryptor.new
 
-    assert_equal String, alpha_num.encrypt("jjjj")
+    assert_equal String, alpha_num.encrypt('jjjj')
   end
-
 end
