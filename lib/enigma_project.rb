@@ -71,7 +71,18 @@ class Encryptor
     shift = rotation_key[:b]
     encrypt_b = Hash[alpha_num.zip(alpha_num.rotate(shift))]
     encrypted_b = string.chars.map { |charc| encrypt_b.fetch(charc, "")}
-binding.pry
+  end
+
+  def encrypt_c(string)
+    shift = rotation_key[:c]
+    encrypt_c = Hash[alpha_num.zip(alpha_num.rotate(shift))]
+    encrypted_c = string.chars.map { |charc| encrypt_c.fetch(charc, "")}
+  end
+
+  def encrypt_d(string)
+    shift = rotation_key[:d]
+    encrypt_d = Hash[alpha_num.zip(alpha_num.rotate(shift))]
+    encrypted_d = string.chars.map { |charc| encrypt_d.fetch(charc, "")}
   end
 
   def alpha_num
