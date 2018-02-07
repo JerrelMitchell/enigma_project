@@ -65,8 +65,9 @@ class Encryptor
       shift = value
       alphabet = Array("a".."z")
       encrypter = Hash[alphabet.zip(alphabet.rotate(shift))]
-      output = string.chars.map { |character| encrypter.fetch(character, " ")}.join
+      output = string.chars.map { |charc| encrypter.fetch(charc, "")}.join
+  # binding.pry
     end
-    binding.pry
+    # binding.pry
   end
 end
