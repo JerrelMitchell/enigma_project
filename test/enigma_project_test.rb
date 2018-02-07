@@ -49,10 +49,13 @@ class EncryptionTest < Minitest::Test
   end
 
   def test_it_can_encrypt_character_a
-    alpha_num = Encryptor.new
+    encryptor = Encryptor.new
+    first_character = "j"
 
-    assert_equal String, alpha_num.encrypt('j')
+    assert_includes ("a".."z"), encryptor.encrypt_a(first_character).join
   end
+
+
 
   # def test_it_can_encrypt_four_characters
   #   alpha_num = Encryptor.new

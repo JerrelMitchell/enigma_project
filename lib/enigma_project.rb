@@ -61,13 +61,10 @@ class Encryptor
 
   end
 
-  def encrypt(string)
-    rotation_key.each do |(key), value|
-      shift = value
-      encrypter_a = alpha_num.zip(alpha_num.rotate(shift))
-      string.chars.map { |charc| encrypter_a.fetch(charc, "")}.join
-    binding.pry
-    end
+  def encrypt_a(string)
+    shift = rotation_key[:a]
+    encrypt_a = Hash[alpha_num.zip(alpha_num.rotate(shift))]
+    encrypted_a = string.chars.map { |charc| encrypt_a.fetch(charc, "")}
   end
 
   def alpha_num
