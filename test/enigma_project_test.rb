@@ -73,6 +73,7 @@ class EncryptionTest < Minitest::Test
     encryptor = Encryptor.new
     fourth_character = "j"
 
+
     assert_includes ("a".."z"), encryptor.encrypt_d(fourth_character).join
   end
 
@@ -82,4 +83,5 @@ class EncryptionTest < Minitest::Test
 
     assert_kind_of String, encryptor.encrypt_four(four_characters)
   end
+
 end

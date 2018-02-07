@@ -93,7 +93,7 @@ class Encryptor
     output_d = encrypt_d(split_charc[3])
     output_total = output_a + output_b + output_c + output_d
     message = output_total.join
-binding.pry
+# binding.pry
   end
 
   def alpha_num
