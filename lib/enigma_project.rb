@@ -7,7 +7,8 @@ class Encryptor
               :date,
               :squared_date,
               :rotation_key,
-              :shift
+              :shift,
+              :message
 
   def initialize
     @key_gen = rand(10_000..99_999)
@@ -85,15 +86,14 @@ class Encryptor
     encrypted_d = string.chars.map { |charc| encrypt_d.fetch(charc, "")}
   end
 
-  def encrypt_four(four_characters)
-    split_charc = four_characters.scan(/./)
+  def encrypt_four(characters)
+    split_charc = characters.split(//)
     output_a = encrypt_a(split_charc[0])
     output_b = encrypt_b(split_charc[1])
     output_c = encrypt_c(split_charc[2])
     output_d = encrypt_d(split_charc[3])
     output_total = output_a + output_b + output_c + output_d
-    message = output_total.join
-# binding.pry
+    output_total.join
   end
 
   def alpha_num

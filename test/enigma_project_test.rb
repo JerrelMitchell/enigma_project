@@ -84,4 +84,11 @@ class EncryptionTest < Minitest::Test
     assert_kind_of String, encryptor.encrypt_four(four_characters)
   end
 
+  def test_it_can_encrypt_a_long_word
+    encryptor = Encryptor.new
+    four_characters = "jjjj jjjjj j jjj"
+
+    assert_kind_of String, encryptor.encrypt_four(four_characters)
+  end
+
 end
