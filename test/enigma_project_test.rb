@@ -68,6 +68,5 @@ class EncryptionTest < Minitest::Test
     encryptor = Encryptor.new
     four_characters = 'jjjj jjjjj j jjj'
     assert_kind_of String, encryptor.encrypt_four(four_characters)
-
   end
 end
